@@ -1,5 +1,7 @@
 package de.ekss.chat.ejb;
 
+import de.ekss.chat.jpa.User;
+
 import javax.annotation.PostConstruct;
 import javax.ejb.Startup;
 import javax.enterprise.context.ApplicationScoped;
@@ -19,7 +21,8 @@ public class TestPersist {
 
     @PostConstruct
     public void init(){
-
+        User user = new User("thomas", "egal");
+        em.persist(user);
     }
 
 }
