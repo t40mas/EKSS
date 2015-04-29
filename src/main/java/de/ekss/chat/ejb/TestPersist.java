@@ -1,10 +1,9 @@
 package de.ekss.chat.ejb;
 
-import de.ekss.chat.jpa.User;
+import de.ekss.chat.jpa.Customer;
 
 import javax.annotation.PostConstruct;
-import javax.ejb.Startup;
-import javax.enterprise.context.ApplicationScoped;
+import javax.faces.bean.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -13,7 +12,6 @@ import javax.persistence.PersistenceContext;
  */
 
 @ApplicationScoped
-@Startup
 public class TestPersist {
 
     @PersistenceContext
@@ -21,7 +19,7 @@ public class TestPersist {
 
     @PostConstruct
     public void init(){
-        User user = new User("thomas", "egal");
+        Customer user = new Customer("thomas", "egal");
         em.persist(user);
     }
 

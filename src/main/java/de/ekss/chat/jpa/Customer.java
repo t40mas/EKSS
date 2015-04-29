@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 
 @Entity
-public class User {
+public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,9 +19,9 @@ public class User {
     @Column(nullable=false)
     private String password;
 
-    public User(){}
+    public Customer(){}
 
-    public User(String name, String password){
+    public Customer(String name, String password){
         this.name = name;
         this.password = password;
     }

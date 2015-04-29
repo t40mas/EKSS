@@ -1,7 +1,11 @@
 package de.ekss.chat.ejb;
 
-import javax.enterprise.context.SessionScoped;
+import de.ekss.chat.jpa.Customer;
+
+import javax.ejb.Stateless;
 import javax.inject.Named;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.io.Serializable;
 
 /**
@@ -9,16 +13,15 @@ import java.io.Serializable;
  */
 
 @Named
-@SessionScoped
+@Stateless
 public class TestJSF implements Serializable{
 
-    private String name = "test";
+    @PersistenceContext
+    EntityManager em;
 
-    public String getName() {
-        return name;
-    }
+    public void saveCustomer(){
+        Customer customer = new Customer("test", "neu");
+        em.persist(customer);
 
-    public void setName(String name) {
-        this.name = name;
     }
 }
