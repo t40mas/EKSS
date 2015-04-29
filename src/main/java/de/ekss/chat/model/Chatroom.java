@@ -1,4 +1,4 @@
-package de.ekss.chat.jpa;
+package de.ekss.chat.model;
 
 import javax.persistence.*;
 import java.util.List;

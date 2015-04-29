@@ -1,4 +1,4 @@
-package de.ekss.chat.jpa;
+package de.ekss.chat.model;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -17,7 +17,7 @@ public class Nachricht {
     private Date date;
 
     @ManyToOne
-    private Customer user;
+    private User user;
 
     @ManyToOne
     private Chatroom chatroom;
@@ -33,11 +33,11 @@ public class Nachricht {
         return this;
     }
 
-    public Customer getUser() {
+    public User getUser() {
         return user;
     }
 
-    public Nachricht setUser(Customer user) {
+    public Nachricht setUser(User user) {
         this.user = user;
         return this;
     }

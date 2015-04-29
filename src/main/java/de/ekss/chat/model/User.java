@@ -1,4 +1,4 @@
-package de.ekss.chat.jpa;
+package de.ekss.chat.model;
 
 import javax.persistence.*;
 
@@ -6,8 +6,13 @@ import javax.persistence.*;
  * Created by thomas on 15.04.15.
  */
 
-@Entity
-public class Customer {
+@Entity(name = "_user")
+@NamedQueries({
+        @NamedQuery(name = "User.findAllUser", query = "select u from _user u"),
+        @NamedQuery(name = "User.findUser", query = "select u from _user u where u.name like ?1")
+}
+)
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,9 +24,9 @@ public class Customer {
     @Column(nullable=false)
     private String password;
 
-    public Customer(){}
+    public User(){}
 
-    public Customer(String name, String password){
+    public User(String name, String password){
         this.name = name;
         this.password = password;
     }
